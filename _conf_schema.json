@@ -1,0 +1,47 @@
+{
+  "subscriptions_enabled": {
+    "description": "启用订阅与主动推送",
+    "type": "bool", "default": false,
+    "hint": "默认关闭；群订阅仅限 Bot 管理员。建议同一目标只启用一个宿主。"
+  },
+  "subscription_interval_seconds": {
+    "description": "订阅轮询间隔（秒）",
+    "type": "int", "default": 300,
+    "hint": "60–86400；每轮一份机器人范围，最多每种5份订阅。"
+  },
+  "daily_report_hour": {
+    "description": "日报起始小时（北京时间）",
+    "type": "int", "default": 9,
+    "hint": "0–23；观察前一天开始的比赛，不保证完整全天。"
+  },
+  "namespace": {
+    "description": "部署命名空间",
+    "type": "string",
+    "default": "astrbot-local",
+    "hint": "不同部署使用不同值；修改后不会复用旧绑定。"
+  },
+  "stratz_token": {
+    "description": "STRATZ Token",
+    "type": "string",
+    "default": "",
+    "hint": "仅在本机填写；不提交配置，不在聊天中发送。"
+  },
+  "timeout_seconds": {
+    "description": "请求超时（秒）",
+    "type": "float",
+    "default": 10,
+    "hint": "有限正数，最大 60；不自动重试。"
+  },
+  "illustration_path": {
+    "description": "本地英雄与装备素材目录",
+    "type": "string",
+    "default": "",
+    "hint": "填写显式下载的素材包目录；相对路径以插件数据目录为基准。留空显示占位，不自动联网。"
+  },
+  "reply_mode": {
+    "description": "回复模式",
+    "type": "string",
+    "default": "image",
+    "options": ["image", "text"]
+  }
+}

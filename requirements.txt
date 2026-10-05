@@ -1,0 +1,5 @@
+astrbot-plugin-dota2forge[stratz]==0.1.0a4
+dota2forge-core[stratz]==0.1.0a4
+dota2forge-renderer==0.1.0a4
+httpx>=0.28.1,<1
+pillow>=11.3,<13
