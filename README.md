@@ -9,17 +9,17 @@
 
 [安装文档](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md) · [截图清单](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md) · [Dota2Forge](https://github.com/HBLADEH/Dota2Forge/blob/main/README.md) · [反馈问题](https://github.com/HBLADEH/Dota2Forge/issues)
 
-> 发行版本：`0.1.0-alpha.5` · [目标分发仓库](https://github.com/HBLADEH/astrbot_plugin_dota2forge)。由主仓同一源码生成。
+> 发行版本：`0.1.0-alpha.6` · [目标分发仓库](https://github.com/HBLADEH/astrbot_plugin_dota2forge)。由主仓同一源码生成。
 
 ## 丨安装提醒
 
 > [!IMPORTANT]
-> 插件标识为 `astrbot_plugin_dota2forge`，发现桥接按 **AstrBot >=4.28.2,<4.29** 验证；需要 Python 3.12+。
-> 当前为 **0.1.0-alpha.5 文档修复预览版**。首次安装须按下方说明准备运行组件，再启动插件。
+> 插件标识为 `astrbot_plugin_dota2forge`，要求 **AstrBot >=4.5.0**、Python 3.12+。4.5.0 的公开 API 已核对；真实宿主测试目前在 4.28.2 完成。
+> 当前为 **0.1.0-alpha.6 文档修复预览版**。首次安装须按下方说明准备运行组件，再启动插件。
 
 已有 OneBot 单会话基础查询、图片与宿主生命周期验收记录。2026-10-05 本机已升级匹配的 0.1.0a2 运行库和桥接，启用后为 `ready / image`，OneBot 已连接；现行 `do` 前缀、段位预估 MMR、英雄出装和新图标已部署。用户已提供完整主宰出装实机卡，命令输入未截入画面；新菜单、MMR 与其他现行指令截图仍待补充。订阅默认关闭，真实推送仍待验收；主动推送目前仅支持 OneBot v11 反向 WebSocket。
 
-本次修复商店图标、截图和文档链接。商店使用标准版本号 `0.1.0-alpha.5`，对应 Python 适配器包 `0.1.0a5`；共享 Core/Renderer 保持 `0.1.0a4`。0.1.0a4 已通过商店审核，本次更新审核状态以商店版本页为准。
+本次修复商店图标、截图和文档链接。商店使用标准版本号 `0.1.0-alpha.6`，对应 Python 适配器包 `0.1.0a6`；共享 Core/Renderer 保持 `0.1.0a4`。0.1.0a4 已通过商店审核，本次更新审核状态以商店版本页为准。
 
 ## 丨安装与首次配置
 
