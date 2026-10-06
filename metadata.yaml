@@ -1,7 +1,7 @@
 name: astrbot_plugin_dota2forge
 display_name: Dota2Forge
 desc: 查刀塔战绩、比赛详情和英雄热门出装，查看段位与预估分数。首次安装需按说明准备运行组件。
-version: 0.1.0a4
+version: 0.1.0-alpha.5
 author: HBLADEH
 repo: https://github.com/HBLADEH/astrbot_plugin_dota2forge
 astrbot_version: ">=4.28.2,<4.29"

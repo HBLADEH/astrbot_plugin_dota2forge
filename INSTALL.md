@@ -1,6 +1,6 @@
 # Dota2Forge · AstrBot 安装与更新
 
-适用于0.1.0a4预览版，Python 3.12+，AstrBot >=4.28.2,<4.29。插件需要先安装三个运行组件；只在商店点击安装还不能直接使用。组件来自同一仓库的GitHub Releases，安装器核对版本和SHA256，不需要PyPI上的项目包。
+适用于0.1.0-alpha.5文档修复版（Python适配器0.1.0a5、共享Core/Renderer 0.1.0a4），Python 3.12+，AstrBot >=4.28.2,<4.29。插件需要先安装三个运行组件；只在商店点击安装还不能直接使用。组件来自同一仓库的GitHub Releases，安装器核对版本和SHA256，不需要PyPI上的项目包。
 
 ## 首次安装
 
