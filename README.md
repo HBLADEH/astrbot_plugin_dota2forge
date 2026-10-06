@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" width="256" height="256" alt="Dota2Forge Q 版主宰图标">
+  <img src="https://raw.githubusercontent.com/HBLADEH/astrbot_plugin_dota2forge/main/logo.png" width="256" height="256" alt="Dota2Forge Q 版主宰图标">
 </p>
 
 <h1 align="center">Dota2Forge · AstrBot</h1>
@@ -7,7 +7,7 @@
 
 <p align="center">AstrBot 插件 · Dota2Forge 共享核心 · Python 3.12+</p>
 
-[安装文档](INSTALL.md) · [截图清单](INSTALL.md) · [Dota2Forge](https://github.com/HBLADEH/Dota2Forge/blob/main/README.md) · [反馈问题](https://github.com/HBLADEH/Dota2Forge/issues)
+[安装文档](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md) · [截图清单](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md) · [Dota2Forge](https://github.com/HBLADEH/Dota2Forge/blob/main/README.md) · [反馈问题](https://github.com/HBLADEH/Dota2Forge/issues)
 
 > 发行版本：`0.1.0a4` · [目标分发仓库](https://github.com/HBLADEH/astrbot_plugin_dota2forge)。由主仓同一源码生成。
 
@@ -33,7 +33,7 @@
    .venv/Scripts/python.exe data/plugins/astrbot_plugin_dota2forge/install_runtime.py --host-python .venv/Scripts/python.exe
    ```
 
-3. 重新启动 AstrBot，在插件配置中填写 `stratz_token` 和独立 `namespace`，保存后重新加载。Token 只填本机配置。完整步骤、Linux 路径及升级方式见[安装说明](INSTALL.md)。
+3. 重新启动 AstrBot，在插件配置中填写 `stratz_token` 和独立 `namespace`，保存后重新加载。Token 只填本机配置。完整步骤、Linux 路径及升级方式见[安装说明](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。
 
 三个组件从本插件 GitHub Releases 下载，安装器核对版本与摘要，并检查依赖冲突。只在商店点击安装还不能直接使用。更新时同样需要退出宿主、运行安装器、重新启动；不会自动升级运行中的共享库。空 Token 提示等待配置，不启动业务请求。
 
@@ -88,17 +88,17 @@
 
 `/do主宰出装` 展示 OpenDota 职业比赛物品购买次数，按出门、前期、中期、后期分组，不能据此推断最优出装或购买顺序。以下为用户提供的 AstrBot 完整实机卡片，保留未知样本说明、来源与抓取时间；命令输入画面待补。
 
-![AstrBot 主宰热门出装实机卡片](screenshots/hero-items.png)
+![AstrBot 主宰热门出装实机卡片](https://raw.githubusercontent.com/HBLADEH/astrbot_plugin_dota2forge/main/screenshots/hero-items.png)
 
-其余展示位等待现行 `do` 版本的脱敏截图。两端分别采集，保留唤醒前缀差异；文件名、画面内容与脱敏步骤见[截图清单](INSTALL.md)，已采用图片的范围与来源见[记录](INSTALL.md)。
+其余展示位等待现行 `do` 版本的脱敏截图。两端分别采集，保留唤醒前缀差异；文件名、画面内容与脱敏步骤见[截图清单](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)，已采用图片的范围与来源见[记录](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。
 
 ## 丨数据与使用说明
 
 - 玩家 / 比赛默认来自 STRATZ，出装来自 OpenDota；来源、抓取时间、未知字段和请求失败分别显示。
 - 预估 MMR 是段位区间或下界，**不是精确天梯分**；未定级和未知段位不估算。
 - 默认图片；绘制失败回退同次数据的文字，发送失败不自动重发。
-- 英雄 / 装备 / 段位图使用[显式配置的本地素材](INSTALL.md)，缺图仍可占位出图，普通回复不下载资源。
-- 玩家、指定比赛、段位与日报订阅见[指南](INSTALL.md)。默认关闭，群聊要求 Bot 管理员，主动推送只支持 OneBot v11 反向 WebSocket；双端部署须明确推送归属。
+- 英雄 / 装备 / 段位图使用[显式配置的本地素材](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)，缺图仍可占位出图，普通回复不下载资源。
+- 玩家、指定比赛、段位与日报订阅见[指南](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。默认关闭，群聊要求 Bot 管理员，主动推送只支持 OneBot v11 反向 WebSocket；双端部署须明确推送归属。
 
 英雄攻略、AI Tool、IMP 和 Deploy 尚未实现。其他平台、多账号与当前版本完整实机边界仍待独立验收。
 
@@ -112,10 +112,10 @@
 
 **图标或插图缺失？** 插件图标与卡片素材是不同资源。卡片插图需配置本地目录，检查路径和回复模式；来源失败请按错误提示处理。
 
-**如何更新或卸载？** 按[接入文档](INSTALL.md)关闭运行资源、更新匹配库与桥接。卸载保留绑定 / 订阅数据，删除数据另行处理。
+**如何更新或卸载？** 按[接入文档](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)关闭运行资源、更新匹配库与桥接。卸载保留绑定 / 订阅数据，删除数据另行处理。
 
 ## 丨致谢与许可
 
 README 结构参考 [GenshinUID](https://github.com/KimigaiiWuyi/GenshinUID)；图标呈现参考 [NTEUID](https://github.com/tyql688/NTEUID)，主宰图案为本项目独立生成的同人插画。感谢 AstrBot、STRATZ 和 OpenDota。
 
-代码采用 [MIT](LICENSE)。Dota 2、主宰及相关角色权利属于 Valve；图标不是官方标识。字体与第三方素材各按原许可使用，见[素材说明](INSTALL.md)。
+代码采用 [MIT](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/LICENSE)。Dota 2、主宰及相关角色权利属于 Valve；图标不是官方标识。字体与第三方素材各按原许可使用，见[素材说明](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。
