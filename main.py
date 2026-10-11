@@ -94,6 +94,11 @@ class Dota2ForgePlugin(Star):
             await self.runtime.start()
             self._start_subscriptions()
             return
+        if not self._config_snapshot.get("asset_proxy"):
+            get_config = getattr(self.context, "get_config", None)
+            proxy = get_config().get("http_proxy", "") if callable(get_config) else ""
+            if isinstance(proxy, str):
+                self._config_snapshot["asset_proxy"] = proxy
         try:
             directory = StarTools.get_data_dir("astrbot_plugin_dota2forge")
         except (OSError, RuntimeError):
@@ -141,6 +146,18 @@ class Dota2ForgePlugin(Star):
     @filter.command("do菜单")
     async def menu(self, event: AstrMessageEvent, text: GreedyStr):
         await self._command(event, "do菜单", text)
+
+    @filter.command("do素材状态")
+    async def asset_status(self, event: AstrMessageEvent, text: GreedyStr):
+        await self._command(event, "do素材状态", text)
+
+    @filter.command("do下载素材")
+    async def asset_download(self, event: AstrMessageEvent, text: GreedyStr):
+        await self._command(event, "do下载素材", text)
+
+    @filter.command("do更新素材")
+    async def asset_update(self, event: AstrMessageEvent, text: GreedyStr):
+        await self._command(event, "do更新素材", text)
 
     @filter.command("do绑定")
     async def bind(self, event: AstrMessageEvent, text: GreedyStr):

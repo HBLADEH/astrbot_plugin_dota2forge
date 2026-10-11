@@ -29,6 +29,7 @@ def verify_dependencies(entry: str) -> None:
         if not isinstance(expected, dict) or set(expected) != {
             "dota2forge-core",
             "dota2forge-renderer",
+            "dota2forge-assets",
             adapter,
         }:
             raise ValueError

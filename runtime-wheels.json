@@ -1,19 +1,23 @@
 {
-  "release_tag": "v0.1.0a7",
+  "release_tag": "v0.1.0a10",
   "repository": "https://github.com/HBLADEH/astrbot_plugin_dota2forge",
   "schema_version": 1,
   "wheels": {
     "astrbot-plugin-dota2forge": {
-      "filename": "astrbot_plugin_dota2forge-0.1.0a7-py3-none-any.whl",
-      "sha256": "0745af432c3adeef7e8382740a7661fd3fc682402a1cae255161c83f31cdba27"
+      "filename": "astrbot_plugin_dota2forge-0.1.0a10-py3-none-any.whl",
+      "sha256": "e432ac871f0c3b63ee9c2b25cbf9ad11828ef5e20d5782ba41a4675fa9ae298c"
+    },
+    "dota2forge-assets": {
+      "filename": "dota2forge_assets-0.1.0a1-py3-none-any.whl",
+      "sha256": "9e3c890b24b861e20452d83d80b4962d0f7acbf2f7c0722c6f95bb91aa9a4250"
     },
     "dota2forge-core": {
-      "filename": "dota2forge_core-0.1.0a4-py3-none-any.whl",
-      "sha256": "badd006aab7b7925e7d1922f8c2f7d3cd9d5610f46a8a50a872d3cafe9316f68"
+      "filename": "dota2forge_core-0.1.0a7-py3-none-any.whl",
+      "sha256": "d29bb659fc699fa7a505f49e7c4d463e1e277d6ede61942c0fa6f4d017555c4c"
     },
     "dota2forge-renderer": {
-      "filename": "dota2forge_renderer-0.1.0a4-py3-none-any.whl",
-      "sha256": "c1bbceb2619a57c1db8880c99a4eaa99c55db4fac4fe8ea67d399bd372f472c6"
+      "filename": "dota2forge_renderer-0.1.0a6-py3-none-any.whl",
+      "sha256": "7fc1910c8604a6cfdd7c181d42cb3c12ec28618871260455b01da86a7876b697"
     }
   }
 }

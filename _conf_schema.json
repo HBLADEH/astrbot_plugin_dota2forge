@@ -36,7 +36,20 @@
     "description": "本地英雄与装备素材目录",
     "type": "string",
     "default": "",
-    "hint": "填写显式下载的素材包目录；相对路径以插件数据目录为基准。留空显示占位，不自动联网。"
+    "hint": "非空使用自定义素材且不覆盖；相对路径以插件数据目录为基准。留空使用托管素材，首次图片模式按下载模式后台准备。"
+  },
+  "asset_download_mode": {
+    "description": "素材下载模式",
+    "type": "string",
+    "default": "auto",
+    "options": ["auto", "manual", "off"],
+    "hint": "auto 首次图片模式后台补齐；manual 仅管理员命令下载；off 禁止素材联网。已有完整快照不重复下载。"
+  },
+  "asset_proxy": {
+    "description": "素材 HTTP 代理",
+    "type": "string",
+    "default": "",
+    "hint": "可选 http(s)://主机:端口；留空可继承宿主代理。请勿在聊天中发送带认证的代理地址。"
   },
   "reply_mode": {
     "description": "回复模式",

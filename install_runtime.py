@@ -19,7 +19,7 @@ def public_requirements(root: Path) -> list[str]:
     if not isinstance(plugin, str) or plugin not in plugins:
         raise ValueError("Unknown Dota2Forge plugin.")
     adapter = plugins[plugin]
-    names = {"dota2forge-core", "dota2forge-renderer", adapter}
+    names = {"dota2forge-core", "dota2forge-renderer", "dota2forge-assets", adapter}
     if (
         not isinstance(release, dict)
         or type(release.get("schema_version")) is not int
@@ -55,7 +55,7 @@ def public_requirements(root: Path) -> list[str]:
             or not re.fullmatch(r"[0-9a-f]{64}", wheel["sha256"])
         ):
             raise ValueError("Invalid runtime wheel name or SHA256.")
-        extra = "" if name == "dota2forge-renderer" else "[stratz]"
+        extra = "" if name in {"dota2forge-renderer", "dota2forge-assets"} else "[stratz]"
         url = f"{repo}/releases/download/{tag}/{filename}#sha256={wheel['sha256']}"
         requirements.append(f"{name}{extra} @ {url}")
     return requirements
@@ -71,7 +71,8 @@ def pillow_constraints(host_python: Path) -> list[str]:
             """import importlib.metadata as metadata
 import json
 from pip._vendor.packaging.requirements import Requirement
-excluded = {"dota2forge-core", "dota2forge-renderer", "dota2uid", "astrbot-plugin-dota2forge"}
+excluded = {"dota2forge-core", "dota2forge-renderer", "dota2forge-assets",
+            "dota2uid", "astrbot-plugin-dota2forge"}
 constraints = set()
 for distribution in metadata.distributions():
     name = distribution.metadata.get("Name", "").lower().replace("_", "-")
