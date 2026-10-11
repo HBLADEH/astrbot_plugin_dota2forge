@@ -1,11 +1,11 @@
 {
-  "release_tag": "v0.1.0a10",
+  "release_tag": "v0.1.0a11",
   "repository": "https://github.com/HBLADEH/astrbot_plugin_dota2forge",
   "schema_version": 1,
   "wheels": {
     "astrbot-plugin-dota2forge": {
-      "filename": "astrbot_plugin_dota2forge-0.1.0a10-py3-none-any.whl",
-      "sha256": "e432ac871f0c3b63ee9c2b25cbf9ad11828ef5e20d5782ba41a4675fa9ae298c"
+      "filename": "astrbot_plugin_dota2forge-0.1.0a11-py3-none-any.whl",
+      "sha256": "7293b515e67dde7306c5039bed1c911427fd629ba1402f2b93e5e71881842d21"
     },
     "dota2forge-assets": {
       "filename": "dota2forge_assets-0.1.0a1-py3-none-any.whl",
