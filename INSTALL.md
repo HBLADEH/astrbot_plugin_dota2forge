@@ -1,6 +1,6 @@
 # Dota2Forge · AstrBot 安装与更新
 
-本次版本为0.1.0-alpha.10（适配器a10、Assets a1、Core a7、Renderer a6），要求Python 3.12+、AstrBot >=4.5.0。发行状态见主项目[发行记录](https://github.com/HBLADEH/Dota2Forge/blob/main/docs/cookbook/plugin-release.md)与本插件Releases。requirements通过固定SHA256的GitHub Release wheel地址取得四个运行组件；旧alpha.7为三个组件；全新商店安装由AstrBot执行依赖安装，不需要PyPI上的项目包。商店发布状态需在版本页核实，GitHub更新不会替换Cloud缓存的旧版ZIP。
+本次版本为0.1.0-alpha.12（适配器a12、Assets a1、Core a7、Renderer a7），要求Python 3.12+、AstrBot >=4.5.0。新增订阅比赛总览与分队详情卡，渲染失败回退同一报告文本。发行状态见主项目[发行记录](https://github.com/HBLADEH/Dota2Forge/blob/main/docs/cookbook/plugin-release.md)与本插件Releases。requirements通过固定SHA256的GitHub Release wheel地址取得四个运行组件；旧alpha.7为三个组件；全新商店安装由AstrBot执行依赖安装，不需要PyPI上的项目包。商店发布状态需在版本页核实，GitHub更新不会替换Cloud缓存的旧版ZIP。
 
 ## 官方商店安装
 

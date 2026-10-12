@@ -5,6 +5,7 @@ _verify_dependencies(__file__)
 """AstrBot discovery bridge; installed separately from the SDK-free library."""
 
 import asyncio
+import base64
 import re
 
 from astrbot.api import AstrBotConfig, logger
@@ -40,9 +41,13 @@ class Dota2ForgePlugin(Star):
         self.runtime = None
         self._subscription_timer = None
 
-    async def _send_subscription(self, event: SubscriptionEvent, text: str) -> DeliveryOutcome:
+    async def _send_subscription(
+        self, event: SubscriptionEvent, replies: tuple[AstrReply, ...]
+    ) -> DeliveryOutcome:
         from aiocqhttp.exceptions import ApiNotAvailable, Error
 
+        if not replies:
+            return DeliveryOutcome.NOT_ATTEMPTED
         try:
             caller = self.runtime.subscription_route(event)
         except InvalidIdentityError:
@@ -65,11 +70,18 @@ class Dota2ForgePlugin(Star):
             config = self.context.get_config(umo=f"{caller.connection_id}:{kind}:{target}")
             if caller.user_id not in {str(value) for value in config.get("admins_id", [])}:
                 return DeliveryOutcome.NOT_ATTEMPTED
+        message = [
+            {"type": "image", "data": {
+                "file": "base64://" + base64.b64encode(reply.artifact.data).decode("ascii")
+            }} if isinstance(reply, AstrImageReply)
+            else {"type": "text", "data": {"text": reply.text + "\n"}}
+            for reply in replies
+        ]
         params = {"group_id" if kind == "GroupMessage" else "user_id": int(target)}
         try:
             receipt = await asyncio.wait_for(client.call_action(
                 "send_group_msg" if kind == "GroupMessage" else "send_private_msg",
-                self_id=caller.bot_id, message=[{"type": "text", "data": {"text": text}}],
+                self_id=caller.bot_id, message=message,
                 **params,
             ), timeout=15)
         except ApiNotAvailable:
