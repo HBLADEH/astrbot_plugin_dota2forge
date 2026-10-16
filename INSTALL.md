@@ -1,6 +1,6 @@
 # Dota2Forge · AstrBot 安装与更新
 
-本次版本为0.1.0-alpha.12（适配器a12、Assets a1、Core a7、Renderer a7），要求Python 3.12+、AstrBot >=4.5.0。新增订阅比赛总览与分队详情卡，渲染失败回退同一报告文本。发行状态见主项目[发行记录](https://github.com/HBLADEH/Dota2Forge/blob/main/docs/cookbook/plugin-release.md)与本插件Releases。requirements通过固定SHA256的GitHub Release wheel地址取得四个运行组件；旧alpha.7为三个组件；全新商店安装由AstrBot执行依赖安装，不需要PyPI上的项目包。商店发布状态需在版本页核实，GitHub更新不会替换Cloud缓存的旧版ZIP。
+本次版本为0.1.0-alpha.14（适配器a14、Assets a1、Core a9、Renderer a8），要求Python 3.12+、AstrBot >=4.5.0。新增版本强势、STRATZ攻略与单场样例、工具携带共享Skill指南的原生连续复盘及按需数据图。发行状态见主项目[发行记录](https://github.com/HBLADEH/Dota2Forge/blob/main/docs/cookbook/plugin-release.md)与本插件Releases。requirements通过固定SHA256的GitHub Release wheel地址取得四个运行组件；全新商店安装由AstrBot执行依赖安装，不需要PyPI上的项目包。商店发布状态需在版本页核实，GitHub更新不会替换Cloud缓存的旧版ZIP。
 
 ## 官方商店安装
 
@@ -27,7 +27,7 @@
    Linux通常将 `.venv/Scripts/python.exe` 替换为 `.venv/bin/python`。安装需要能访问GitHub Releases及第三方依赖源；安装器保留宿主对Pillow的限制，并运行 `pip check`。失败时先处理冲突，不要跳过检查。
 
 3. 重新启动AstrBot，在插件配置中填写 `stratz_token` 和独立 `namespace`，保存后重载。空密钥会提示等待配置；密钥只填本机配置，不发到聊天或GitHub。
-4. 发送 `/do菜单`、`/do绑定 <账号ID>`、`/do查询`、`/do比赛 <比赛ID>`、`/do主宰出装`。斜线按宿主唤醒前缀调整。
+4. 发送 `/do菜单`、`/do查询`、`/do强势`、`/do主宰攻略 1号位 详细`。配置可用AI模型并允许插件复盘工具后，发送 `/do复盘 <比赛ID> [英雄]`，在同一会话连续追问。斜线按宿主唤醒前缀调整；仅@回复时每次追问也需@。Skill指南随工具提供，无需另装，详见[复盘用法](native-review.md)。
 
 ## 更新与图片
 

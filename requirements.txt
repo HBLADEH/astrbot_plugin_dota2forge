@@ -1,6 +1,6 @@
-astrbot-plugin-dota2forge[stratz] @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a12/astrbot_plugin_dota2forge-0.1.0a12-py3-none-any.whl#sha256=f2de390dbe700f153ba547a3c4dff831661616c83b752a707cc8100c658702ab
-dota2forge-assets @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a12/dota2forge_assets-0.1.0a1-py3-none-any.whl#sha256=9e3c890b24b861e20452d83d80b4962d0f7acbf2f7c0722c6f95bb91aa9a4250
-dota2forge-core[stratz] @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a12/dota2forge_core-0.1.0a7-py3-none-any.whl#sha256=d29bb659fc699fa7a505f49e7c4d463e1e277d6ede61942c0fa6f4d017555c4c
-dota2forge-renderer @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a12/dota2forge_renderer-0.1.0a7-py3-none-any.whl#sha256=973553c362bb31520524d58c115593076a05bb6c0be6e09322d91cb9ccc8a5e4
+astrbot-plugin-dota2forge[stratz] @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a14/astrbot_plugin_dota2forge-0.1.0a14-py3-none-any.whl#sha256=1c6f8d9f8ad5641d6d81ad83a013537a1afce71f654ec59ddd5993c44ce05a64
+dota2forge-assets @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a14/dota2forge_assets-0.1.0a1-py3-none-any.whl#sha256=9e3c890b24b861e20452d83d80b4962d0f7acbf2f7c0722c6f95bb91aa9a4250
+dota2forge-core[stratz] @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a14/dota2forge_core-0.1.0a9-py3-none-any.whl#sha256=66f51e73e36beb27ca1cf47bed89554106e0df17ac12948462c16ba15bd3506e
+dota2forge-renderer @ https://github.com/HBLADEH/astrbot_plugin_dota2forge/releases/download/v0.1.0a14/dota2forge_renderer-0.1.0a8-py3-none-any.whl#sha256=8104a581e2d74f24882ec4156f49499ac27d94d0ecf2b95a7ba7104453eb005e
 httpx>=0.28.1,<1
 pillow>=11.3,<13
