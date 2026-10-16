@@ -1,19 +1,20 @@
 <p align="center">
+
   <img src="https://raw.githubusercontent.com/HBLADEH/astrbot_plugin_dota2forge/main/logo.png" width="128" height="128" alt="Dota2Forge 图标">
 </p>
 
 <h1 align="center">Dota2Forge · AstrBot</h1>
 
-<p align="center">在聊天中查询 Dota 2 玩家、战绩、比赛报告和英雄热门出装。</p>
+<p align="center">查询 Dota 2 战绩、强势英雄与攻略，使用原生 AI 连续复盘。</p>
 
 <p align="center">
   <a href="https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md">安装指南</a> ·
   <a href="https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/CHANGELOG.md">更新日志</a> ·
-  <a href="https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/README.md">Dota2Forge</a> ·
+  <a href="https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/README.md">Dota2Forge</a> ·
   <a href="https://github.com/HBLADEH/Dota2Forge/issues">问题反馈</a>
 </p>
 
-> 发行版本：`0.1.0-alpha.12` · [目标分发仓库](https://github.com/HBLADEH/astrbot_plugin_dota2forge)。由主仓同一源码生成。
+> 发行版本：`0.1.0-alpha.14` · [目标分发仓库](https://github.com/HBLADEH/astrbot_plugin_dota2forge)。由主仓同一源码生成。
 
 适用于 AstrBot 的 Dota 2 查询插件，插件标识为 `astrbot_plugin_dota2forge`。与 GsCore 插件 Dota2UID 共用 Dota2Forge 核心和图片渲染器。当前处于 **M0 预发行**阶段。
 
@@ -23,13 +24,15 @@
 - **近期战绩**：查询最近 1–100 场比赛，支持分页和按列表序号查看详情。
 - **比赛报告**：总览与两队详情，展示英雄、装备、统计、团队优势曲线及来源提供的 STRATZ IMP。
 - **英雄热门出装**：按出门、前期、中期、后期展示 OpenDota 职业比赛物品购买统计。
+- **版本强势与攻略**：STRATZ 分位置胜率卡、装备统计和真实比赛样例；复用已有装备图标，显示来源提供的中文技能与天赋。
+- **AI 多轮复盘**：复盘工具携带共享 `dota2-review` Skill 的专题指南，分析对线经济、出装与团队职责，并按需补充数据图。
 - **订阅通知**：玩家新比赛、指定比赛完成、段位变化和每日战报；默认关闭。
 
 默认使用“远古锻炉”主题图片回复，也可配置文字模式。来源未提供的字段保留缺失说明。
 
 ## 效果展示
 
-以下截图来自 **GsCore / Dota2UID**，两端共用图片渲染器与“远古锻炉”主题。昵称和账号／比赛 ID 已脱敏，原图分辨率保留；来源见[截图记录](https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/docs/assets/screenshots/README.md)。
+以下截图来自 **GsCore / Dota2UID**，两端共用图片渲染器与“远古锻炉”主题。昵称和账号／比赛 ID 已脱敏，原图分辨率保留；来源见[截图记录](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/assets/screenshots/README.md)。
 
 <table>
   <tr>
@@ -125,6 +128,9 @@
 /do战绩 第3页
 /do比赛 第1场
 /do主宰出装
+/do强势
+/do主宰攻略 1号位 详细
+/do复盘 <比赛ID> 主宰
 ```
 
 显式查询其他账号或直接查询比赛无需绑定；绑定只保存自己的查询偏好，不证明 Steam 账号所有权。
@@ -142,8 +148,18 @@
 | `/do战绩 第N页` | 查看本会话最后一次有效战绩的指定页 |
 | `/do比赛 <比赛ID>` / `/do比赛 第N场` | 查询比赛报告 / 按列表绝对序号选择比赛 |
 | `/do主宰出装` / `/doAM出装` / `/do出装 Shadow Fiend` | 按英雄中文名、英文名或简称查询热门出装 |
+| `/do强势 [位置] [段位=传奇] [7天]` | 当前版本分位置强势英雄，显示样本和统计窗口 |
+| `/do主宰攻略 1号位 [详细]` | 装备、技能／天赋统计与单场样例 |
+| `/do攻略样例 <比赛ID> <英雄>` | 查看指定比赛的技能升级与购买记录 |
+| `/do复盘 <比赛ID> [英雄]` / `/do复盘 最近` | 开始原生 AI 连续复盘；最近使用本人绑定 |
 
 账号参数接受数字形式的 Dota account ID 或 SteamID64，不接受主页 URL、vanity 或 `@他人`。战绩每页五场，首次最多发送两页；列表在同一会话保留十分钟，改绑、解绑、停用或重载后需重新查询。
+
+### 连续复盘
+
+先在 AstrBot 配置可用的 AI 模型，并允许当前会话／人格使用插件复盘工具。发送 `/do复盘 <比赛ID> [英雄]` 后，在同一会话继续问“这局主要有什么问题？”、“出装顺序怎么改？”、“给我看看经济曲线”；无需重复比赛 ID。斜线和 @ 按宿主唤醒设置使用；配置仅 @ 回复时，追问也要 @ 机器人。
+
+工具按当前问题附带共享 `dota2-review` Skill 的指南，无需手动安装终端 Skill。没有可用 AI 时返回来源事实，附加“报告”可查看比赛报告。会话活动超时 30 分钟、最长 2 小时，清空历史或重载后需重新开始。详见[复盘用法](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/native-review.md)与[攻略指令](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/hero-meta.md)。
 
 ### 订阅
 
@@ -157,7 +173,7 @@
 | `/do订阅列表 [游标]` / `/do取消订阅 <订阅ID>` | 查看本人当前会话的订阅 / 取消订阅 |
 | `/do重试推送 <事件ID>` | 核实是否已送达后人工重试，可能重复 |
 
-首次比赛、段位轮询只建立基线，不补发历史。日报按北京时间统计前一天开始的有限比赛窗口，最多 100 场。失败推送不自动重发；双端部署时需确定推送归属。配置和投递规则见[订阅指南](https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/docs/cookbook/subscriptions.md)，真实主动推送仍待验收。
+首次比赛、段位轮询只建立基线，不补发历史。日报按北京时间统计前一天开始的有限比赛窗口，最多 100 场。失败推送不自动重发；双端部署时需确定推送归属。配置和投递规则见[订阅指南](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/subscriptions.md)，真实主动推送仍待验收。
 
 ### 管理
 
@@ -178,16 +194,16 @@
 | `illustration_path` | 空 | 留空使用托管素材；非空优先使用自定义目录 |
 | `subscriptions_enabled` | `false` | 启用订阅与主动推送 |
 
-首次素材准备完成前可使用占位卡片，已有完整快照会复用。用 `/do素材状态` 查看进度；素材代理、超时和订阅周期等设置见[安装指南](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)与[素材指南](https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/docs/cookbook/illustrations.md)。Docker 自定义路径需在容器内可见。
+首次素材准备完成前可使用占位卡片，已有完整快照会复用。用 `/do素材状态` 查看进度；素材代理、超时和订阅周期等设置见[安装指南](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)与[素材指南](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/illustrations.md)。Docker 自定义路径需在容器内可见。
 
 ## 数据说明
 
-- 玩家和比赛来自 **STRATZ**，热门出装来自 **OpenDota**；数据覆盖取决于账号隐私、来源解析状态和接口可用性。
+- 玩家、比赛、强势与攻略主要来自 **STRATZ**，职业热门出装来自 **OpenDota**。复盘优先 STRATZ；符合条件的来源失败或仅基础数据时，只读尝试 OpenDota 整份兜底，并说明来源，不拼接两源数值。
 - MMR 是根据段位换算的区间或下界，**不是精确天梯分**。STRATZ IMP 是来源的本局表现分，不等同官方 MVP。
 - 热门出装展示购买次数，不代表最优出装或购买顺序；缺失字段不会补零，请求失败不会伪装成无战绩。
 - 图片绘制失败时回退为同次查询的文字结果；消息发送失败不自动重发。
 
-英雄攻略和 AI Tool 尚未实现；其他平台及当前主题的完整聊天效果仍需独立验收。
+强势榜不保证上分；统计桶不等于最优加点或整套出装。复盘尚未接入死亡、团战、视野事件，不能从经济曲线断言操作或责任。AstrBot 本轮源码与离线消费已验证，真实多轮对话和新 Skill 的模型效果仍待测试。
 
 ## 更新与排障
 
@@ -198,8 +214,8 @@
 - **找不到第 N 场**：在同一会话重新查询战绩，或直接传比赛 ID。
 - **英雄或装备缺图**：查看素材状态；检查下载模式、代理或自定义目录。
 
-完整步骤见[安装与更新指南](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。反馈问题时附插件版本、宿主版本、复现命令及脱敏错误信息。开发贡献见[开发指南](https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/docs/cookbook/development.md)。
+完整步骤见[安装与更新指南](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/INSTALL.md)。反馈问题时附插件版本、宿主版本、复现命令及脱敏错误信息。开发贡献见[开发指南](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/development.md)。
 
 ## 致谢与许可
 
-感谢 AstrBot、STRATZ 和 OpenDota。代码使用 [MIT 许可证](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/LICENSE)。Dota 2 及相关角色、美术权利属于 Valve；项目图标为独立生成的同人插画。第三方素材与字体遵循各自许可，见[素材说明](https://github.com/HBLADEH/Dota2Forge/blob/425fc9f66b489778f35f2690427a5d8b60f40df3/docs/cookbook/illustrations.md)。
+感谢 AstrBot、STRATZ 和 OpenDota。复盘指南参考 [dota2-newbie-assistant](https://github.com/timzhangherenow/dota2-newbie-assistant)，随 Core 保留其 MIT 归属与许可。代码使用 [MIT 许可证](https://github.com/HBLADEH/astrbot_plugin_dota2forge/blob/main/LICENSE)。Dota 2 及相关角色、美术权利属于 Valve；项目图标为独立生成的同人插画。第三方素材与字体遵循各自许可，见[素材说明](https://github.com/HBLADEH/Dota2Forge/blob/0e3ecc0d1eda948b548feae03c7c9fa62944d52d/docs/cookbook/illustrations.md)。
